@@ -24,9 +24,8 @@ class TestHTMLNode(unittest.TestCase):
 
         self.assertEqual(node.to_html(), "Plain text")
 
-    
     def test_to_html_without_value(self):
-        node = LeafNode("p", None) # type: ignore
+        node = LeafNode("p", None)  # type: ignore
 
         with self.assertRaises(ValueError):
             node.to_html()
@@ -44,6 +43,7 @@ class TestHTMLNode(unittest.TestCase):
         node = LeafNode("p", "")
         with self.assertRaises(ValueError):
             node.to_html()
+
 
 if __name__ == "__main__":
     unittest.main()
