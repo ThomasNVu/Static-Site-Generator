@@ -29,6 +29,7 @@ class TextNode:
     def __repr__(self) -> str:
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
 
+
 def text_node_to_html_node(text_node: TextNode) -> LeafNode:
     match text_node.text_type:
         case TextType.TEXT:
@@ -46,9 +47,6 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode:
         case TextType.IMAGE:
             if text_node.url is None:
                 raise ValueError("invalid url")
-            return LeafNode("img","", {"src": text_node.url, "alt": text_node.text})
+            return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
         case _:
             raise ValueError(f"invalid text type: {text_node.text_type}")
-
-
-        
